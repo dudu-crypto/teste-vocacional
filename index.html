@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubra seu caminho na Una - Teste vocacional para a terceira idade">
+    <title>Descubra Seu Caminho | Una Silver Economy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --una-red: #C41E3A;
+            --una-purple: #7B2D8C;
+            --una-dark: #2B2B2B;
+            --una-gray: #666666;
+            --una-light-gray: #F5F5F5;
+            --una-white: #FFFFFF;
+            --una-pink: #FFF0F5;
+            --una-footer-dark: #3D1726;
+        }
+
+        body {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            color: var(--una-dark);
+            line-height: 1.6;
+            background: var(--una-white);
+            font-size: 16px;
+        }
+
+        *:focus {
+            outline: 3px solid var(--una-purple);
+            outline-offset: 2px;
+        }
+
+        /* ===== HEADER UNA ===== */
+        .una-header {
+            background: var(--una-white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .una-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            border-bottom: 1px solid #E5E5E5;
+        }
+
+        .una-menu-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 15px;
+            color: var(--una-dark);
+        }
+
+        .una-menu-icon {
+            font-size: 20px;
+        }
+
+        .una-lang-selector {
+            display: flex;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--una-gray);
+        }
+
+        .una-lang-selector span {
+            cursor: pointer;
+        }
+
+        .una-lang-selector span:hover {
+            color: var(--una-red);
+        }
+
+        .una-logo-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .una-logo {
+            height: 45px;
+        }
+
+        .una-search-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .una-search-input {
+            padding: 8px 15px;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            width: 200px;
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
+
+        .una-btn-inscricao {
+            background: var(--una-purple);
+            color: var(--una-white);
+            padding: 10px 25px;
+            border-radius: 25px;
+            border: none;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .una-btn-inscricao:hover {
+            background: var(--una-red);
+            transform: translateY(-2px);
+        }
+
+        .una-nav-bar {
+            background: #E5E5E5;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .una-nav-bar nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .una-nav-bar a {
+            color: var(--una-dark);
+            text-decoration: none;
+            padding: 15px 0;
+            font-size: 15px;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .una-nav-bar a:hover {
+            color: var(--una-red);
+        }
+
+        .una-nav-bar a::after {
+            content: '▼';
+            margin-left: 5px;
+            font-size: 10px;
+        }
+
+        .una-nav-bar a:last-child::after {
+            content: '';
+        }
+
+        /* ===== BANNER ENEM 2025 ===== */
+        .enem-banner {
+            background: rgb(41, 0, 7);
+            color: var(--una-white);
+            overflow: hidden;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .enem-marquee {
+            display: flex;
+            animation: scroll 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        .enem-marquee-item {
+            display: inline-flex;
+            align-items: center;
+            padding: 0 50px;
+            font-size: 14px;
+        }
+
+        .enem-highlight {
+            font-weight: 700;
+            color: var(--una-red);
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .enem-marquee {
+                animation: none;
+            }
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--una-red) 0%, var(--una-purple) 100%);
+            color: var(--una-white);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .intro h2 {
+            font-size: 32px;
+            color: var(--una-dark);
+            margin-bottom: 15px;
+        }
+
+        .intro p {
+            font-size: 16px;
+            color: var(--una-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .test-card {
+            background: var(--una-white);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .progress-container {
+            margin-bottom: 40px;
+        }
+
+        .progress-text {
+            font-size: 16px;
+            color: var(--una-gray);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--una-light-gray);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--una-red) 0%, var(--una-purple) 100%);
+            transition: width 0.4s ease;
+            border-radius: 10px;
+        }
+
+        .question {
+            display: none;
+        }
+
+        .question.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .question h3 {
+            font-size: 22px;
+            color: var(--una-dark);
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .option {
+            background: var(--una-light-gray);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            padding: 18px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .option:hover {
+            background: var(--una-pink);
+            border-color: var(--una-red);
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            background: var(--una-purple);
+            color: var(--una-white);
+            border-color: var(--una-purple);
+        }
+
+        .option-icon {
+            font-size: 28px;
+            min-width: 35px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 14px 40px;
+            font-size: 16px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            min-width: 150px;
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--una-purple);
+            color: var(--una-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--una-red);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(196, 30, 58, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--una-light-gray);
+            color: var(--una-dark);
+        }
+
+        .btn-secondary:hover {
+            background: var(--una-gray);
+            color: var(--una-white);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .results {
+            display: none;
+            text-align: center;
+        }
+
+        .results.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .results-header {
+            background: linear-gradient(135deg, var(--una-red) 0%, var(--una-purple) 100%);
+            color: var(--una-white);
+            padding: 50px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+        }
+
+        .results-header h2 {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .results-header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .course-suggestions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .course-card {
+            background: var(--una-white);
+            border: 2px solid var(--una-light-gray);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .course-card:hover {
+            border-color: var(--una-purple);
+            box-shadow: 0 8px 25px rgba(123, 45, 140, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .course-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .course-card h3 {
+            font-size: 22px;
+            color: var(--una-purple);
+            margin-bottom: 12px;
+        }
+
+        .course-card p {
+            font-size: 16px;
+            color: var(--una-gray);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .course-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .btn-course-info,
+        .btn-course-enroll {
+            flex: 1;
+            padding: 14px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
+
+        .btn-course-info {
+            background: var(--una-white);
+            color: var(--una-purple);
+            border: 2px solid var(--una-purple);
+        }
+
+        .btn-course-info:hover {
+            background: var(--una-purple);
+            color: var(--una-white);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 45, 140, 0.3);
+        }
+
+        .btn-course-enroll {
+            background: var(--una-purple);
+            color: var(--una-white);
+            border: 2px solid var(--una-purple);
+        }
+
+        .btn-course-enroll:hover {
+            background: var(--una-red);
+            border-color: var(--una-red);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(196, 30, 58, 0.3);
+        }
+
+        .cta-section {
+            background: var(--una-pink);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-section h3 {
+            font-size: 28px;
+            color: var(--una-dark);
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            color: var(--una-gray);
+            margin-bottom: 25px;
+        }
+
+        /* ===== FOOTER UNA ===== */
+        .una-footer {
+            background: var(--una-footer-dark);
+            color: var(--una-white);
+            padding: 60px 40px 30px;
+        }
+
+        .una-footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+
+        .una-footer-column h4 {
+            font-size: 18px;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .una-footer-column ul {
+            list-style: none;
+        }
+
+        .una-footer-column ul li {
+            margin-bottom: 15px;
+        }
+
+        .una-footer-column a {
+            color: var(--una-white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+            font-size: 15px;
+        }
+
+        .una-footer-column a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .una-footer-column a::after {
+            content: ' →';
+            font-size: 14px;
+        }
+
+        .una-footer-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.2);
+            margin: 40px 0;
+        }
+
+        .una-footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .una-social-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .una-social-links a {
+            color: var(--una-white);
+            font-size: 24px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .una-social-links a:hover {
+            opacity: 1;
+        }
+
+        .una-emec-qrcode {
+            background: var(--una-white);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .una-emec-qrcode img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .una-emec-qrcode p {
+            color: var(--una-dark);
+            font-size: 11px;
+            margin-top: 8px;
+            line-height: 1.3;
+        }
+
+        .una-footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .una-footer-links a {
+            color: var(--una-white);
+            text-decoration: none;
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        .una-footer-links a:hover {
+            opacity: 1;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .una-top-bar {
+                padding: 12px 15px;
+            }
+
+            .una-nav-bar {
+                padding: 0 15px;
+                overflow-x: auto;
+            }
+
+            .una-nav-bar nav {
+                gap: 15px;
+            }
+
+            .una-search-input {
+                display: none;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 30px 15px;
+            }
+
+            .test-card {
+                padding: 25px 15px;
+            }
+
+            .question h3 {
+                font-size: 18px;
+            }
+
+            .option {
+                font-size: 15px;
+                padding: 15px;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 15px;
+                min-width: 130px;
+            }
+
+            .button-container {
+                flex-direction: column;
+            }
+
+            .results-header {
+                padding: 35px 25px;
+            }
+
+            .results-header h2 {
+                font-size: 28px;
+            }
+
+            .results-header p {
+                font-size: 16px;
+            }
+
+            .course-suggestions {
+                grid-template-columns: 1fr;
+            }
+
+            .course-actions {
+                flex-direction: column;
+            }
+
+            .btn-course-info,
+            .btn-course-enroll {
+                width: 100%;
+            }
+
+            .una-footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .una-footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Una -->
+    <header class="una-header">
+        <div class="una-top-bar">
+            <button class="una-menu-btn">
+                <span class="una-menu-icon">☰</span>
+                <span>Menu</span>
+            </button>
+            <div class="una-lang-selector">
+                <span><strong>POR</strong></span>
+                <span>|</span>
+                <span>ENG</span>
+                <span>|</span>
+                <span>ESP</span>
+            </div>
+            <div class="una-logo-container">
+                <img src="https://www.una.br/assets/img/logo-una.svg" alt="Una" class="una-logo">
+            </div>
+            <div class="una-search-container">
+                <input type="text" placeholder="Busca" class="una-search-input">
+                <button class="una-btn-inscricao" onclick="window.location.href='https://www.una.br/'">Inscreva-se</button>
+            </div>
+        </div>
+        <div class="una-nav-bar">
+            <nav>
+                <a href="https://www.una.br/cursos/">Cursos</a>
+                <a href="https://www.una.br/modalidades/">Modalidades</a>
+                <a href="https://www.una.br/formas-de-entrada/">Formas de Entrada</a>
+                <a href="https://www.una.br/bolsas-e-financiamentos/">Bolsas e Financiamentos</a>
+                <a href="https://www.una.br/sou-candidato/">Sou Candidato</a>
+                <a href="https://www.una.br/sou-estudante/">Sou Estudante</a>
+                <a href="https://www.una.br/a-una/">A Una</a>
+                <a href="https://www.una.br/blog/" style="margin-left: auto;">Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner ENEM 2025 -->
+    <div class="enem-banner">
+        <div class="enem-marquee">
+            <div class="enem-marquee-item">
+                <span class="enem-highlight">ENEM 2025</span>
+                <span>Sua vida muda com a Una. Use sua nota do Enem dos últimos 10 anos. Inscreva-se já!</span>
+            </div>
+            <div class="enem-marquee-item">
+                <span class="enem-highlight">ENEM 2025</span>
+                <span>Sua vida muda com a Una. Use sua nota do Enem dos últimos 10 anos. Inscreva-se já!</span>
+            </div>
+            <div class="enem-marquee-item">
+                <span class="enem-highlight">ENEM 2025</span>
+                <span>Sua vida muda com a Una. Use sua nota do Enem dos últimos 10 anos. Inscreva-se já!</span>
+            </div>
+            <div class="enem-marquee-item">
+                <span class="enem-highlight">ENEM 2025</span>
+                <span>Sua vida muda com a Una. Use sua nota do Enem dos últimos 10 anos. Inscreva-se já!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Nossa experiência, sua história</h1>
+            <p>Na Una, valorizamos cada capítulo da sua vida. Descubra qual curso combina com sua trajetória, seus interesses e tudo o que você já viveu. Sua experiência é o ponto de partida para novos caminhos.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Intro -->
+        <section class="intro">
+            <h2>Descubra o seu caminho</h2>
+            <p>Responda com calma. Este teste foi criado para identificar áreas de estudo que fazem sentido com tudo o que você já viveu, aprendeu e valoriza. Sua história é única — e ela importa.</p>
+        </section>
+
+        <!-- Test -->
+        <div class="test-card">
+            <div class="progress-container">
+                <div class="progress-text">
+                    <span id="current-question">1</span> de <span id="total-questions">10</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+
+            <!-- Questions -->
+            <div id="questions-container">
+                <!-- Question 1 -->
+                <div class="question active" data-question="1">
+                    <h3>O que mais te motiva a buscar uma graduação neste momento?</h3>
+                    <div class="options">
+                        <div class="option" data-area="humanities" data-value="growth">
+                            <span class="option-icon">🌱</span>
+                            <span>Crescimento pessoal e desenvolvimento contínuo</span>
+                        </div>
+                        <div class="option" data-area="business" data-value="career">
+                            <span class="option-icon">💼</span>
+                            <span>Abrir novas oportunidades profissionais</span>
+                        </div>
+                        <div class="option" data-area="health" data-value="help">
+                            <span class="option-icon">🤝</span>
+                            <span>Ajudar outras pessoas e fazer a diferença</span>
+                        </div>
+                        <div class="option" data-area="technology" data-value="knowledge">
+                            <span class="option-icon">📚</span>
+                            <span>Aprender coisas novas e desafiar minha mente</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question" data-question="2">
+                    <h3>Quando você pensa no seu dia ideal de trabalho ou estudos, o que vem à mente?</h3>
+                    <div class="options">
+                        <div class="option" data-area="technology" data-value="solving">
+                            <span class="option-icon">🔧</span>
+                            <span>Resolver problemas práticos e encontrar soluções</span>
+                        </div>
+                        <div class="option" data-area="humanities" data-value="interacting">
+                            <span class="option-icon">💬</span>
+                            <span>Conversar e interagir com diferentes pessoas</span>
+                        </div>
+                        <div class="option" data-area="business" data-value="organizing">
+                            <span class="option-icon">📊</span>
+                            <span>Organizar projetos e tomar decisões estratégicas</span>
+                        </div>
+                        <div class="option" data-area="health" data-value="caring">
+                            <span class="option-icon">❤️</span>
+                            <span>Cuidar do bem-estar das pessoas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question" data-question="3">
+                    <h3>Ao longo da sua vida, qual tipo de atividade sempre despertou sua curiosidade?</h3>
+                    <div class="options">
+                        <div class="option" data-area="technology" data-value="tech">
+                            <span class="option-icon">💻</span>
+                            <span>Tecnologia, inovação e como as coisas funcionam</span>
+                        </div>
+                        <div class="option" data-area="humanities" data-value="culture">
+                            <span class="option-icon">🎨</span>
+                            <span>Arte, cultura e expressão humana</span>
+                        </div>
+                        <div class="option" data-area="business" data-value="economy">
+                            <span class="option-icon">💰</span>
+                            <span>Economia, negócios e empreendedorismo</span>
+                        </div>
+                        <div class="option" data-area="health" data-value="wellness">
+                            <span class="option-icon">🧘</span>
+                            <span>Saúde, qualidade de vida e bem-estar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="question" data-question="4">
+                    <h3>Qual dessas habilidades você sente que mais desenvolveu ao longo da vida?</h3>
+                    <div class="options">
+                        <div class="option" data-area="humanities" data-value="communication">
+                            <span class="option-icon">🗣️</span>
+                            <span>Comunicação e relacionamento interpessoal</span>
+                        </div>
+                        <div class="option" data-area="business" data-value="leadership">
+                            <span class="option-icon">👥</span>
+                            <span>Liderança e gestão de pessoas</span>
+                        </div>
+                        <div class="option" data-area="health" data-value="empathy">
+                            <span class="option-icon">💝</span>
+                            <span>Empatia e capacidade de acolher</span>
+                        </div>
+                        <div class="option" data-area="technology" data-value="analysis">
+                            <span class="option-icon">🔍</span>
+                            <span>Análise e pensamento lógico</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="question" data-question="5">
+                    <h3>Como você prefere aprender coisas novas?</h3>
+                    <div class="options">
+                        <div class="option" data-area="technology" data-value="practice">
+                            <span class="option-icon">⚙️</span>
+                            <span>Na prática, testando e experimentando</span>
+                        </div>
+                        <div class="option" data-area="humanities" data-value="discussion">
+                            <span class="option-icon">💭</span>
+                            <span>Através de discussões e trocas de ideias</span>
+                        </div>
+                        <div class="option" data-area="business" data-value="cases">
+                            <span class="option-icon">📈</span>
+                            <span>Analisando casos reais e situações práticas</span>
+                        </div>
+                        <div class="option" data-area="health" data-value="experience">
+                            <span class="option-icon">🌟</span>
+                            <span>Vivenciando experiências e conectando com pessoas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 6 -->
+                <div class="question" data-question="6">
+                    <h3>Quando você imagina seu legado, o que gostaria de deixar para as próximas gerações?</h3>
+                    <div class="options">
+                        <div class="option" data-area="humanities" data-value="knowledge">
+                            <span class="option-icon">📖</span>
+                            <span>Conhecimento e sabedoria compartilhados</span>
+                        </div>
+                        <div class="option" data-area="business" data-value="enterprise">
+                            <span class="option-icon">🏢</span>
+                            <span>Um negócio ou projeto sustentável</span>
+                        </div>
+                        <div class="option" data-area="health" data-value="impact">
+                            <span class="option-icon">🌍</span>
+                            <span>Impacto positivo na vida das pessoas</span>
+                        </div>
+                        <div class="option" data-area="technology" data-value="innovation">
+                            <span class="option-icon">🚀</span>
+                            <span>Contribuições para inovação e progresso</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="question" data-question="7">
+                    <h3>Em qual ambiente você se sente mais confortável e produtivo?</h3>
+                    <div class="options">
+                        <div class="option" data-area="health" data-value="personal">
+                            <span class="option-icon">🏠</span>
+                            <span>Ambientes acolhedores com contato humano próximo</span>
+                        </div>
+                        <div class="option" data-area="business" data-value="dynamic">
+                            <span class="option-icon">🏃</span>
+                            <span>Ambientes dinâmicos e desafiadores</span>
+                        </div>
+                        <div class="option" data-area="technology" data-value="structured">
+                            <span class="option-icon">🔬</span>
+                            <span>Ambientes estruturados focados em resultados</span>
+                        </div>
+                        <div class="option" data-area="humanities" data-value="creative">
+                            <span class="option-icon">🎭</span>
+                            <span>Ambientes criativos e colaborativos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 8 -->
+                <div class="question" data-question="8">
+                    <h3>O que você valoriza mais em uma carreira ou atividade profissional?</h3>
+                    <div class="options">
+                        <div class="option" data-area="health" data-value="purpose">
+                            <span class="option-icon">✨</span>
+                            <span>Propósito e significado no que faço</span>
+                        </div>
+                        <div class="option" data-area="business" data-value="results">
+                            <span class="option-icon">🎯</span>
+                            <span>Resultados concretos e reconhecimento</span>
+                        </div>
+                        <div class="option" data-area="technology" data-value="challenges">
+                            <span class="option-icon">🧩</span>
+                            <span>Desafios intelectuais e aprendizado constante</span>
+                        </div>
+                        <div class="option" data-area="humanities" data-value="expression">
+                            <span class="option-icon">🎪</span>
+                            <span>Liberdade de expressão e criatividade</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 9 -->
+                <div class="question" data-question="9">
+                    <h3>Qual dessas frases mais ressoa com você?</h3>
+                    <div class="options">
+                        <div class="option" data-area="humanities" data-value="understand">
+                            <span class="option-icon">🧠</span>
+                            <span>"Quero entender melhor as pessoas e a sociedade"</span>
+                        </div>
+                        <div class="option" data-area="business" data-value="build">
+                            <span class="option-icon">🏗️</span>
+                            <span>"Quero construir algo que gere valor"</span>
+                        </div>
+                        <div class="option" data-area="health" data-value="transform">
+                            <span class="option-icon">🦋</span>
+                            <span>"Quero transformar vidas e promover bem-estar"</span>
+                        </div>
+                        <div class="option" data-area="technology" data-value="innovate">
+                            <span class="option-icon">💡</span>
+                            <span>"Quero inovar e encontrar soluções criativas"</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 10 -->
+                <div class="question" data-question="10">
+                    <h3>Como você imagina estar usando seu conhecimento daqui a alguns anos?</h3>
+                    <div class="options">
+                        <div class="option" data-area="humanities" data-value="teaching">
+                            <span class="option-icon">👨‍🏫</span>
+                            <span>Ensinando, orientando ou mentorando pessoas</span>
+                        </div>
+                        <div class="option" data-area="business" data-value="managing">
+                            <span class="option-icon">📋</span>
+                            <span>Gerenciando projetos ou meu próprio negócio</span>
+                        </div>
+                        <div class="option" data-area="health" data-value="serving">
+                            <span class="option-icon">🙏</span>
+                            <span>Prestando serviços que melhoram a vida das pessoas</span>
+                        </div>
+                        <div class="option" data-area="technology" data-value="developing">
+                            <span class="option-icon">⚡</span>
+                            <span>Desenvolvendo projetos e soluções inovadoras</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="button-container">
+                <button class="btn btn-secondary" id="prev-btn" style="display: none;">Anterior</button>
+                <button class="btn btn-primary" id="next-btn" disabled>Próxima</button>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results" id="results">
+            <div class="results-header">
+                <h2 id="result-title">Seu Perfil Vocacional</h2>
+                <p id="result-description">Com base em suas respostas, identificamos as áreas que mais combinam com você!</p>
+            </div>
+
+            <div class="course-suggestions" id="course-suggestions"></div>
+
+            <div class="cta-section">
+                <h3>Pronto para dar o próximo passo?</h3>
+                <p>Entre em contato conosco e descubra como a Una pode ajudá-lo a realizar seus sonhos</p>
+                <button class="btn btn-primary" onclick="window.location.href='https://www.una.br'">Fale Conosco</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Una -->
+    <footer class="una-footer">
+        <div class="una-footer-content">
+            <div class="una-footer-column">
+                <h4>A Una</h4>
+                <ul>
+                    <li><a href="https://www.una.br/sobre/">Sobre</a></li>
+                    <li><a href="https://www.una.br/nossas-unidades/">Nossas Unidades</a></li>
+                    <li><a href="https://www.una.br/cadastro-emec/">Cadastro e-MEC</a></li>
+                    <li><a href="https://www.una.br/documentos-institucionais/">Documentos Institucionais</a></li>
+                    <li><a href="https://www.una.br/canal-de-privacidade/">Canal de Privacidade</a></li>
+                    <li><a href="https://www.una.br/compliance/">Compliance</a></li>
+                    <li><a href="https://www.una.br/ouvidoria/">Ouvidoria</a></li>
+                    <li><a href="https://www.una.br/descadastramento-de-comunicacao/">Descadastramento de comunicação</a></li>
+                </ul>
+            </div>
+            <div class="una-footer-column">
+                <h4>Faça parte</h4>
+                <ul>
+                    <li><a href="https://www.una.br/cursos/">Cursos</a></li>
+                    <li><a href="https://www.una.br/modalidades/">Modalidades</a></li>
+                    <li><a href="https://www.una.br/formas-de-entrada/">Formas de Entrada</a></li>
+                    <li><a href="https://www.una.br/bolsas-e-financiamentos/">Bolsas e Financiamentos</a></li>
+                    <li><a href="https://www.una.br/trabalhe-conosco/">Trabalhe Conosco</a></li>
+                    <li><a href="https://animasolucoes.com.br/">Ânima Soluções</a></li>
+                </ul>
+            </div>
+            <div class="una-footer-column">
+                <h4>Alunos, Ex-Alunos e Candidatos</h4>
+                <ul>
+                    <li><a href="https://www.una.br/consulta-publica-ao-diploma/">Consulta Pública ao Diploma</a></li>
+                    <li><a href="https://napi.una.br/">NAPI</a></li>
+                    <li><a href="https://www.una.br/troca-senha-ulife/">Troca senha Ulife - Ex-alunos</a></li>
+                </ul>
+            </div>
+            <div class="una-footer-column">
+                <h4>Central de Atendimento</h4>
+                <p style="margin-bottom: 15px;">Atendimento pelo WhatsApp</p>
+                <p style="margin-bottom: 20px;">Parcerias corporativas</p>
+            </div>
+        </div>
+
+        <div class="una-footer-divider"></div>
+
+        <div class="una-footer-bottom">
+            <div class="una-social-links">
+                <a href="https://www.facebook.com/unabh" target="_blank" aria-label="Facebook">📘</a>
+                <a href="https://www.instagram.com/somosunamg/" target="_blank" aria-label="Instagram">📷</a>
+                <a href="https://www.linkedin.com/school/una---centro-universitario/" target="_blank" aria-label="LinkedIn">💼</a>
+                <a href="https://twitter.com/somosunamg" target="_blank" aria-label="Twitter">🐦</a>
+                <a href="https://www.youtube.com/user/unabh" target="_blank" aria-label="YouTube">▶️</a>
+            </div>
+
+            <div class="una-emec-qrcode">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Crect x='10' y='10' width='10' height='10' fill='%23fff'/%3E%3Crect x='30' y='10' width='10' height='10' fill='%23fff'/%3E%3Crect x='50' y='10' width='10' height='10' fill='%23fff'/%3E%3Crect x='70' y='10' width='10' height='10' fill='%23fff'/%3E%3Crect x='10' y='30' width='10' height='10' fill='%23fff'/%3E%3Crect x='50' y='30' width='10' height='10' fill='%23fff'/%3E%3Crect x='70' y='30' width='10' height='10' fill='%23fff'/%3E%3Crect x='10' y='50' width='10' height='10' fill='%23fff'/%3E%3Crect x='30' y='50' width='10' height='10' fill='%23fff'/%3E%3Crect x='70' y='50' width='10' height='10' fill='%23fff'/%3E%3Crect x='10' y='70' width='10' height='10' fill='%23fff'/%3E%3Crect x='30' y='70' width='10' height='10' fill='%23fff'/%3E%3Crect x='50' y='70' width='10' height='10' fill='%23fff'/%3E%3Crect x='70' y='70' width='10' height='10' fill='%23fff'/%3E%3C/svg%3E" alt="QR Code e-MEC">
+                <p>Acesse aqui<br>o cadastro<br>da Una no e-<br>MEC</p>
+            </div>
+
+            <div class="una-footer-links">
+                <a href="https://www.una.br/canal-de-privacidade/">Canal de Privacidade</a>
+                <a href="#" onclick="window.scrollTo(0,0); return false;">Voltar ao topo</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Test Logic (mantém o mesmo código JavaScript da versão anterior)
+        const answers = {
+            humanities: 0,
+            business: 0,
+            health: 0,
+            technology: 0
+        };
+
+        let currentQuestion = 1;
+        const totalQuestions = 10;
+        let selectedOption = null;
+
+        const courseDatabase = {
+            humanities: [
+                {
+                    icon: '🧠',
+                    name: 'Psicologia',
+                    description: 'Sua vivência e maturidade emocional são diferenciais valiosos. Transforme sua compreensão de pessoas em conhecimento que transforma vidas.',
+                    slug: 'psicologia'
+                },
+                {
+                    icon: '💰',
+                    name: 'Ciências Econômicas',
+                    description: 'Anos observando o mundo financeiro e social te deram uma visão única. Aprofunde esse olhar com conhecimento acadêmico.',
+                    slug: 'ciencias-economicas'
+                },
+                {
+                    icon: '🎬',
+                    name: 'Cinema e Audiovisual',
+                    description: 'Suas histórias merecem ser contadas. A comunicação visual ganha profundidade com perspectivas construídas ao longo da vida.',
+                    slug: 'cinema-e-audiovisual'
+                }
+            ],
+            business: [
+                {
+                    icon: '💼',
+                    name: 'Administração',
+                    description: 'Sua experiência prática é um patrimônio. Na Una, você estrutura esse conhecimento e abre novas possibilidades profissionais.',
+                    slug: 'administracao'
+                },
+                {
+                    icon: '📊',
+                    name: 'Ciências Contábeis',
+                    description: 'Você já sabe o valor do equilíbrio financeiro. Agora, complemente sua sabedoria com técnicas e ferramentas atuais.',
+                    slug: 'ciencias-contabeis'
+                },
+                {
+                    icon: '📈',
+                    name: 'Arquitetura e Urbanismo',
+                    description: 'Habitar diferentes espaços ao longo da vida te deu um olhar especial. Transforme essa sensibilidade em projetos que melhoram vidas.',
+                    slug: 'arquitetura-e-urbanismo'
+                }
+            ],
+            health: [
+                {
+                    icon: '🏥',
+                    name: 'Enfermagem',
+                    description: 'Cuidar faz parte da sua essência. Una sua empatia natural ao conhecimento técnico e faça diferença na vida de muitas pessoas.',
+                    slug: 'enfermagem'
+                },
+                {
+                    icon: '💉',
+                    name: 'Biomedicina',
+                    description: 'Sua curiosidade sobre saúde e ciência merece aprofundamento. Descubra os mistérios do corpo humano e contribua para o bem-estar.',
+                    slug: 'biomedicina'
+                },
+                {
+                    icon: '🦴',
+                    name: 'Fisioterapia',
+                    description: 'Você entende a importância do movimento e da qualidade de vida. Transforme essa consciência em uma profissão que promove saúde.',
+                    slug: 'fisioterapia'
+                }
+            ],
+            technology: [
+                {
+                    icon: '💻',
+                    name: 'Análise e Desenvolvimento de Sistemas',
+                    description: 'Sua capacidade de resolver problemas pode ganhar novas ferramentas. A tecnologia valoriza diferentes perspectivas e experiências.',
+                    slug: 'analise-e-desenvolvimento-de-sistemas'
+                },
+                {
+                    icon: '📊',
+                    name: 'Big Data e Inteligência Analítica',
+                    description: 'Anos tomando decisões te ensinaram a analisar informações. Aprenda a trabalhar com dados de forma estratégica e moderna.',
+                    slug: 'big-data-e-inteligencia-analitica'
+                },
+                {
+                    icon: '🖥️',
+                    name: 'Ciência da Computação',
+                    description: 'Curiosidade e vontade de aprender não têm idade. Descubra como a computação pode ser seu novo campo de atuação e inovação.',
+                    slug: 'ciencia-da-computacao'
+                }
+            ]
+        };
+
+        const questionsContainer = document.getElementById('questions-container');
+        const questions = document.querySelectorAll('.question');
+        const progressFill = document.getElementById('progress-fill');
+        const currentQuestionSpan = document.getElementById('current-question');
+        const nextBtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const resultsSection = document.getElementById('results');
+        const testCard = document.querySelector('.test-card');
+
+        updateProgress();
+
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.option')) {
+                const option = e.target.closest('.option');
+                const question = option.closest('.question');
+                
+                question.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                option.classList.add('selected');
+                selectedOption = option;
+                nextBtn.disabled = false;
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (selectedOption) {
+                const area = selectedOption.getAttribute('data-area');
+                answers[area]++;
+                
+                if (currentQuestion < totalQuestions) {
+                    questions[currentQuestion - 1].classList.remove('active');
+                    currentQuestion++;
+                    questions[currentQuestion - 1].classList.add('active');
+                    
+                    updateProgress();
+                    selectedOption = null;
+                    nextBtn.disabled = true;
+                    prevBtn.style.display = 'inline-block';
+                    
+                    if (currentQuestion === totalQuestions) {
+                        nextBtn.textContent = 'Ver Resultado';
+                    }
+                } else {
+                    showResults();
+                }
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestion > 1) {
+                const prevQuestion = questions[currentQuestion - 1];
+                const prevSelected = prevQuestion.querySelector('.option.selected');
+                if (prevSelected) {
+                    const area = prevSelected.getAttribute('data-area');
+                    answers[area]--;
+                }
+                
+                questions[currentQuestion - 1].classList.remove('active');
+                currentQuestion--;
+                questions[currentQuestion - 1].classList.add('active');
+                
+                updateProgress();
+                
+                const currentSelected = questions[currentQuestion - 1].querySelector('.option.selected');
+                if (currentSelected) {
+                    selectedOption = currentSelected;
+                    nextBtn.disabled = false;
+                } else {
+                    selectedOption = null;
+                    nextBtn.disabled = true;
+                }
+                
+                if (currentQuestion === 1) {
+                    prevBtn.style.display = 'none';
+                }
+                
+                nextBtn.textContent = 'Próxima';
+            }
+        });
+
+        function updateProgress() {
+            const progress = (currentQuestion / totalQuestions) * 100;
+            progressFill.style.width = `${progress}%`;
+            currentQuestionSpan.textContent = currentQuestion;
+        }
+
+        function showResults() {
+            const sortedAreas = Object.entries(answers).sort((a, b) => b[1] - a[1]);
+            const dominantArea = sortedAreas[0][0];
+            const secondaryArea = sortedAreas[1][0];
+            
+            const recommendedCourses = [
+                ...courseDatabase[dominantArea],
+                ...courseDatabase[secondaryArea].slice(0, 1)
+            ];
+            
+            const titles = {
+                humanities: 'Você tem um perfil Humanista',
+                business: 'Você tem um perfil Empreendedor',
+                health: 'Você tem um perfil Cuidador',
+                technology: 'Você tem um perfil Inovador'
+            };
+            
+            const descriptions = {
+                humanities: 'Sua experiência de vida e conexão com pessoas fazem de você um excelente comunicador e educador. Cursos que envolvem interação humana são perfeitos para você!',
+                business: 'Sua visão estratégica e capacidade de liderança são seus maiores talentos. Cursos de gestão e negócios permitirão que você aplique toda sua experiência!',
+                health: 'Sua empatia e desejo de ajudar são admiráveis. Cursos na área da saúde permitirão que você faça a diferença na vida das pessoas!',
+                technology: 'Sua curiosidade e vontade de aprender coisas novas são inspiradoras. Cursos de tecnologia abrirão portas para um mundo de inovação!'
+            };
+            
+            document.getElementById('result-title').textContent = titles[dominantArea];
+            document.getElementById('result-description').textContent = descriptions[dominantArea];
+            
+            const courseSuggestions = document.getElementById('course-suggestions');
+            courseSuggestions.innerHTML = recommendedCourses.map(course => `
+                <div class="course-card">
+                    <div class="course-icon">${course.icon}</div>
+                    <h3>${course.name}</h3>
+                    <p>${course.description}</p>
+                    <div class="course-actions">
+                        <a href="https://www.una.br/cursos/graduacao/${course.slug}/" target="_blank" class="btn-course-info">Saiba Mais</a>
+                        <a href="https://www.una.br/" target="_blank" class="btn-course-enroll">Inscreva-se</a>
+                    </div>
+                </div>
+            `).join('');
+            
+            testCard.style.display = 'none';
+            resultsSection.classList.add('active');
+            resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
+</body>
+</html>
